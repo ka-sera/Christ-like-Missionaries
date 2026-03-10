@@ -48,26 +48,21 @@ export default function ContactPage() {
                 <h3 className="text-xl font-bold text-gold mb-2">Address</h3>
                 <p className="text-navy-100">
                   Christ-Like Missionaries<br />
-                  123 Faith Street<br />
-                  Your City, YC 12345
+                  University of Eastern Africa Baraton
                 </p>
               </div>
 
               <div className="border-l-4 border-gold pl-6">
                 <h3 className="text-xl font-bold text-gold mb-2">Phone</h3>
                 <p className="text-navy-100">
-                  Main: +1 (555) 123-4567<br />
-                  Missions: +1 (555) 987-6543<br />
-                  Emergency: +1 (555) 111-2222
+                  0700880903 - Wcliffe Augo
                 </p>
               </div>
 
               <div className="border-l-4 border-gold pl-6">
                 <h3 className="text-xl font-bold text-gold mb-2">Email</h3>
                 <p className="text-navy-100">
-                  General: <a href="mailto:info@christlikeemissionaries.org" className="text-gold hover:text-yellow-400 transition">info@christlikeemissionaries.org</a><br />
-                  Missions: <a href="mailto:missions@christlikeemissionaries.org" className="text-gold hover:text-yellow-400 transition">missions@christlikeemissionaries.org</a><br />
-                  Support: <a href="mailto:support@christlikeemissionaries.org" className="text-gold hover:text-yellow-400 transition">support@christlikeemissionaries.org</a>
+                  <a href="mailto:christlikemissionaries@gmail.com" className="text-gold hover:text-yellow-400 transition">christlikemissionaries@gmail.com</a>
                 </p>
               </div>
 

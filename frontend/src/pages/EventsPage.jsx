@@ -4,33 +4,33 @@ export default function EventsPage() {
   const [events] = useState([
     {
       id: 1,
-      title: "Monthly Gospel Crusade",
+      title: "Monthly House order meetings",
       date: "First Saturday of every month",
       time: "3:00 PM - 6:00 PM",
-      location: "Community Grounds",
-      description: "Open-air gospel crusade reaching the community with the message of Christ."
+      location: "AVS 10",
+      description: "We meet up every month to do house keeping and plan for upcoming missions"
     },
     {
       id: 2,
       title: "Weekly Bible Study",
       date: "Every Wednesday",
       time: "7:00 PM - 8:30 PM",
-      location: "Prayer Hall",
+      location: "AVS 10",
       description: "In-depth study of God's Word to strengthen believers and nurture discipleship."
     },
     {
       id: 3,
-      title: "Youth Fellowship Night",
+      title: "Fellowship Night",
       date: "Every Friday",
       time: "6:00 PM - 8:00 PM",
-      location: "Youth Center",
+      location: "School auditorium",
       description: "Fellowship, worship, and mentorship for young believers."
     },
     {
       id: 4,
       title: "Community Outreach Day",
       date: "Third Sunday of every month",
-      time: "9:00 AM - 12:00 PM",
+      time: "9:00 AM - 3:00 PM",
       location: "Various Locations",
       description: "Visiting hospitals, orphanages, and communities to show Christ's love."
     },
@@ -39,15 +39,15 @@ export default function EventsPage() {
       title: "Prayer and Fasting Session",
       date: "Monthly (Date TBA)",
       time: "6:00 AM - 12:00 PM",
-      location: "Prayer Chapel",
+      location: "Room 15",
       description: "Dedicated time for intercession and prayer for our nations and communities."
     },
     {
       id: 6,
-      title: "Annual Missions Retreat",
-      date: "September (Dates TBA)",
+      title: "Annual Missions planning",
+      date: "April (Dates TBA)",
       time: "Full Weekend",
-      location: "Retreat Center",
+      location: "AVS 10",
       description: "Strategic planning, spiritual renewal, and mission focus for all members."
     }
   ])
