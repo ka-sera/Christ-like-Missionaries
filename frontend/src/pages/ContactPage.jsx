@@ -75,7 +75,7 @@ export default function ContactPage() {
                   Prayer Meetings: Daily (6:00 AM)
                 </p>
               </div>
-
+              
               <div className="border-l-4 border-gold pl-6">
                 <h3 className="text-xl font-bold text-gold mb-2">Follow Us</h3>
                 <p className="text-navy-100">
