@@ -1,0 +1,442 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*
+  MULTI-SHADE BLUE THEME: Layered, Vibrant, Professional Design
+  Decisions:
+  - Primary: Deep Navy (#0B2545) as dominant brand background
+  - Layering: Medium/Soft/Light blues create visual hierarchy & depth
+  - Gradients: Subtle transitions between blue shades for richness
+  - Shadows: Soft, elevated shadows for modern depth perception
+  - Accessibility: White/light text on dark; dark text on light surfaces
+  - Result: Professional, ministry-friendly, visually engaging design
+*/
+
+:root {
+  /* PRIMARY BRAND COLOR */
+  --color-navy-deep: #0B2545;  /* deepest navy - hero & page bg */
+  
+  /* LAYERED BLUE HIERARCHY */
+  --color-navy-800: #0F2540;   /* very dark - footer, dark sections */
+  --color-navy-700: #1b3a5c;   /* dark - secondary surfaces */
+  --color-navy-600: #2b5ba8;   /* medium-dark - panels, containers */
+  --color-navy-500: #3d70a8;   /* medium - primary containers */
+  --color-navy-400: #5a8fc3;   /* medium-soft - subtle backgrounds */
+  --color-navy-300: #7ba8d1;   /* soft - cards, highlights */
+  --color-navy-200: #a0c1e0;   /* light - hover states, borders */
+  --color-navy-150: #c4d9f0;   /* softer - subtle dividers */
+  --color-navy-100: #d9e5f5;   /* very light - secondary backgrounds */
+  --color-navy-50: #f0f5fb;    /* ultra light - minimal accents */
+  
+  /* RICH BLUE ACCENTS (extended blue palette) */
+  --color-blue-accent: #4a7ba7;    /* medium blue for secondary elements */
+  --color-blue-light: #9ecbf0;     /* light blue for subtle highlights */
+  
+  /* SECONDARY & ACCENT COLORS */
+  --color-teal: #2BA7A0;       /* complementary - secondary CTAs */
+  --color-gold: #FFC857;       /* warm accent - primary CTAs & emphasis */
+  
+  /* SURFACE & TEXT COLORS */
+  --bg-primary: var(--color-navy-deep);           /* main page background */
+  --bg-section: var(--color-navy-700);           /* section backgrounds */
+  --bg-card: var(--color-navy-600);              /* card backgrounds */
+  --bg-card-light: var(--color-navy-300);        /* light card overlays */
+  --bg-surface: var(--color-navy-100);           /* light surfaces, forms */
+  --bg-hover: rgba(255, 255, 255, 0.05);        /* hover states on dark */
+  --bg-active: rgba(255, 255, 255, 0.1);        /* active states on dark */
+  
+  /* TEXT COLORS */
+  --text-on-dark: #ffffff;           /* primary text on navy */
+  --text-on-light: #0f1724;          /* dark text on light surfaces */
+  --text-muted: rgba(255, 255, 255, 0.7);       /* secondary text on dark */
+  --text-muted-light: #6b7280;       /* secondary text on light */
+  
+  /* BORDERS & DIVIDERS */
+  --border-default: rgba(123, 168, 209, 0.1);   /* subtle navy-tinted borders */
+  --border-light: rgba(255, 255, 255, 0.08);    /* very subtle borders */
+  --border-medium: rgba(75, 123, 167, 0.2);     /* medium borders */
+  
+  /* SHADOWS (create depth with blue-tinted shadows) */
+  --shadow-sm: 0 2px 6px rgba(11, 37, 69, 0.1);
+  --shadow-md: 0 6px 16px rgba(11, 37, 69, 0.15);
+  --shadow-lg: 0 12px 32px rgba(11, 37, 69, 0.2);
+  --shadow-xl: 0 20px 48px rgba(11, 37, 69, 0.25);
+  --shadow-blue: 0 8px 24px rgba(75, 123, 167, 0.12);
+  
+  /* GRADIENTS (layered blue transitions for richness) */
+  --grad-primary: linear-gradient(135deg, var(--color-navy-deep) 0%, var(--color-navy-700) 100%);
+  --grad-section: linear-gradient(180deg, var(--color-navy-700) 0%, var(--color-navy-800) 100%);
+  --grad-overlay: linear-gradient(180deg, rgba(11, 37, 69, 0.95) 0%, rgba(15, 37, 64, 0.98) 100%);
+  --grad-card: linear-gradient(135deg, var(--color-navy-600) 0%, var(--color-navy-700) 100%);
+  --grad-soft: linear-gradient(180deg, var(--color-navy-300) 0%, var(--color-navy-400) 100%);
+  --grad-accent: linear-gradient(135deg, var(--color-gold) 0%, #ffb347 100%);
+}
+
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-primary);
+  color: var(--text-on-dark);
+  line-height: 1.6;
+}
+
+/* Base Layout */
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+/* ─────────────────────────────────────────────────────────────── */
+/* TYPOGRAPHY */
+/* ─────────────────────────────────────────────────────────────── */
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-on-dark);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.5px;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+
+p {
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+/* ─────────────────────────────────────────────────────────────── */
+/* NAVIGATION BAR - Multi-layered depth */
+/* ─────────────────────────────────────────────────────────────── */
+
+.site-nav {
+  background: var(--grad-primary);
+  color: var(--text-on-dark);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-md);
+  border-bottom: 1px solid var(--border-light);
+  padding: 0.75rem 0;
+}
+
+.site-nav a {
+  color: var(--text-on-dark);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 240ms ease-in-out;
+  position: relative;
+}
+
+.site-nav a:hover {
+  color: var(--color-gold);
+  transform: translateY(-2px);
+}
+
+.site-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-gold);
+  transition: width 240ms ease-in-out;
+}
+
+.site-nav a:hover::after {
+  width: 100%;
+}
+
+/* ─────────────────────────────────────────────────────────────── */
+/* HERO / BANNER SECTION - Rich gradient depth */
+/* ─────────────────────────────────────────────────────────────── */
+
+.hero, .banner {
+  background: var(--grad-overlay);
+  position: relative;
+  overflow: hidden;
+  padding: 4rem 2rem;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(74, 123, 167, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* ─────────────────────────────────────────────────────────────── */
+/* BUTTONS - With blue layering and interaction states */
+/* ─────────────────────────────────────────────────────────────── */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+  border: 1px solid transparent;
+}
+
+/* Primary Button - Gold accent with depth */
+.btn-primary {
+  background: var(--grad-accent);
+  color: #000;
+  box-shadow: var(--shadow-md);
+  border: none;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  background: linear-gradient(135deg, #ffb347 0%, #ffa500 100%);
+}
+
+.btn-primary:active {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Secondary Button - Navy layered */
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-on-dark);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Tertiary Button - Subtle blue */
+.btn-tertiary {
+  background: transparent;
+  color: var(--color-gold);
+  border: 1px solid var(--color-gold);
+}
+
+.btn-tertiary:hover {
+  background: rgba(255, 200, 87, 0.1);
+}
+
+/* ─────────────────────────────────────────────────────────────── */
+/* CARDS & CONTENT CONTAINERS - Layered blue with shadows */
+/* ─────────────────────────────────────────────────────────────── */
+
+.card {
+  background: var(--grad-card);
+  color: var(--text-on-dark);
+  border-radius: 0.875rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-blue);
+  border: 1px solid var(--border-medium);
+  transition: all 240ms ease-in-out;
+  backdrop-filter: blur(4px);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(255, 200, 87, 0.2);
+}
+
+/* Light Card Variant */
+.card-light {
+  background: var(--grad-soft);
+  color: var(--text-on-dark);
+  box-shadow: var(--shadow-sm);
+}
+
+.card-light:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ─────────────────────────────────────────────────────────────── */
+/* FORMS & INPUT FIELDS - Clean layered styling */
+/* ─────────────────────────────────────────────────────────────── */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  color: var(--text-on-dark);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.form-input,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+  background: var(--bg-surface);
+  color: var(--text-on-light);
+  border: 1px solid var(--border-default);
+  padding: 0.75rem 0.875rem;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  transition: all 200ms ease-in-out;
+  outline: none;
+}
+
+.form-input:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(255, 200, 87, 0.1);
+  transform: translateY(-2px);
+}
+
+/* ─────────────────────────────────────────────────────────────── */
+/* FOOTER - Deep blue with layered texture */
+/* ─────────────────────────────────────────────────────────────── */
+
+.site-footer {
+  background: var(--grad-section);
+  color: var(--text-on-dark);
+  border-top: 1px solid var(--border-light);
+  padding: 2rem;
+  box-shadow: inset 0 4px 12px rgba(11, 37, 69, 0.3);
+}
+
+.site-footer a {
+  color: var(--color-gold);
+}
+
+.site-footer a:hover {
+  color: #ffb347;
+}
+
+/* ─────────────────────────────────────────────────────────────── */
+/* LINKS & INTERACTIVE ELEMENTS */
+/* ─────────────────────────────────────────────────────────────── */
+
+a {
+  color: var(--color-gold);
+  text-decoration: none;
+  transition: all 200ms ease-in-out;
+  position: relative;
+}
+
+a:hover {
+  color: #ffb347;
+}
+
+/* Underline effect for text links */
+.link-underline {
+  border-bottom: 2px solid var(--color-gold);
+  padding-bottom: 2px;
+}
+
+.link-underline:hover {
+  border-color: #ffb347;
+}
+
+/* ─────────────────────────────────────────────────────────────── */
+/* SECTION BACKGROUNDS - Multi-layer depth */
+/* ─────────────────────────────────────────────────────────────── */
+
+.section-primary {
+  background: var(--bg-primary);
+}
+
+.section-secondary {
+  background: var(--bg-section);
+}
+
+.section-highlight {
+  background: var(--grad-soft);
+  border: 1px solid var(--border-medium);
+}
+
+/* ─────────────────────────────────────────────────────────────── */
+/* UTILITIES - Flex, spacing, and color helpers */
+/* ─────────────────────────────────────────────────────────────── */
+
+.text-light { color: var(--text-on-dark); }
+.text-muted { color: var(--text-muted); }
+.text-dark { color: var(--text-on-light); }
+.text-accent { color: var(--color-gold); }
+.text-teal { color: var(--color-teal); }
+
+.bg-navy-deep { background: var(--color-navy-deep); }
+.bg-navy-light { background: var(--color-navy-300); }
+.bg-muted { background: var(--bg-surface); }
+.bg-overlay { background: rgba(11, 37, 69, 0.8); }
+
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow-md { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+.shadow-xl { box-shadow: var(--shadow-xl); }
+
+.border-navy { border-color: var(--border-default); }
+.border-light { border-color: var(--border-light); }
+
+/* ─────────────────────────────────────────────────────────────── */
+/* RESPONSIVE ADJUSTMENTS */
+/* ─────────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+  
+  .btn { padding: 0.5rem 1rem; font-size: 0.9rem; }
+  .card { padding: 1rem; }
+  .site-footer { padding: 1.5rem; }
+  
+  .hero { padding: 2rem 1rem; }
+}
+
+@media (max-width: 480px) {
+  .btn { width: 100%; }
+  .card { border-radius: 0.625rem; }
+}
+
