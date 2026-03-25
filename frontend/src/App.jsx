@@ -12,6 +12,7 @@ import ContactPage from './pages/ContactPage'
 import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import logo from './assets/logo.png'
 
 function App() {
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated)
@@ -32,7 +33,7 @@ function App() {
             <div className="flex justify-between items-center h-16">
               <Link to="/" className="flex items-center gap-2">
                 <img 
-                  src="/logo.png" 
+                  src={logo}
                   alt="Christ-Like Missionaries Logo" 
                   className="h-14"
                 />
@@ -123,7 +124,7 @@ function App() {
               <div>
                 <div className="flex items-center gap-2 mb-4">
                   <img 
-                    src="/logo.png" 
+                    src={logo}
                     alt="Logo" 
                     className="h-12"
                   />
