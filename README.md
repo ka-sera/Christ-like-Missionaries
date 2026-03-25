@@ -508,7 +508,7 @@ MIT License - Feel free to use and modify
 
 ## 📞 Contact
 
-For questions or support, contact: support@christlikemissionaries.org
+For questions or support, contact: christlikemissionaries@gmail.com
 
 ---
 

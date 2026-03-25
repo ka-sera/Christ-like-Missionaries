@@ -55,4 +55,8 @@ export const donationAPI = {
   getStatistics: () => api.get('/donations/statistics/'),
 }
 
+export const contactAPI = {
+  sendMessage: (data) => api.post('/contact/', data),
+}
+
 export default api

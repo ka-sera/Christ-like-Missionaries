@@ -151,7 +151,7 @@ function App() {
               <div>
                 <h4 className="font-bold mb-4 text-gold">Contact</h4>
                 <p className="text-sm text-navy-100">
-                  <a href="mailto:info@christlikeemissionaries.org" className="hover:text-gold transition-colors duration-200">info@christlikeemissionaries.org</a>
+                  <a href="mailto:christlikemissionaries@gmail.com" className="hover:text-gold transition-colors duration-200">christlikemissionaries@gmail.com</a>
                 </p>
               </div>
             </div>

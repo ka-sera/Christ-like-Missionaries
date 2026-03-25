@@ -101,3 +101,12 @@ class MissionListSerializer(serializers.ModelSerializer):
 
     def get_progress_percentage(self, obj):
         return obj.progress_percentage()
+
+
+class ContactMessageSerializer(serializers.Serializer):
+    """Validate contact form submissions."""
+    name = serializers.CharField(max_length=120)
+    email = serializers.EmailField()
+    phone = serializers.CharField(max_length=50, allow_blank=True, required=False)
+    subject = serializers.CharField(max_length=150)
+    message = serializers.CharField()

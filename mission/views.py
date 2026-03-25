@@ -3,12 +3,16 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.authtoken.models import Token
+from rest_framework.views import APIView
 from django.contrib.auth.models import User
 from django.db.models import Q, Sum, Avg, Max
+from django.conf import settings
+from django.core.mail import EmailMessage
 from .models import UserProfile, Missionary, Mission, Donation
 from .serializers import (
     UserSerializer, UserProfileSerializer, MissionarySerializer,
-    MissionDetailSerializer, MissionListSerializer, DonationSerializer
+    MissionDetailSerializer, MissionListSerializer, DonationSerializer,
+    ContactMessageSerializer
 )
 
 
@@ -208,4 +212,41 @@ class DonationViewSet(viewsets.ModelViewSet):
             'largest_donation': float(donations.aggregate(Max('amount'))['amount__max'] or 0),
             'unique_donors': donations.filter(supporter__isnull=False).values('supporter').distinct().count(),
         })
+
+
+class ContactMessageView(APIView):
+    """Accept public contact form submissions and email the ministry inbox."""
+    permission_classes = [AllowAny]
+
+    def post(self, request):
+        serializer = ContactMessageSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        data = serializer.validated_data
+        recipient = settings.CONTACT_RECEIVER_EMAIL or settings.EMAIL_HOST_USER
+        if not recipient:
+            return Response(
+                {'error': 'Contact email is not configured on the server.'},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            )
+
+        phone = data.get('phone') or 'Not provided'
+        subject = f"Website Contact: {data['subject']}"
+        body = (
+            f"Name: {data['name']}\n"
+            f"Email: {data['email']}\n"
+            f"Phone: {phone}\n\n"
+            f"Message:\n{data['message']}"
+        )
+
+        email = EmailMessage(
+            subject=subject,
+            body=body,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            to=[recipient],
+            reply_to=[data['email']],
+        )
+        email.send(fail_silently=False)
+
+        return Response({'message': 'Your message has been sent successfully.'}, status=status.HTTP_200_OK)
 

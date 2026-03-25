@@ -76,7 +76,7 @@ export default function TestimonialsPage() {
             Have you experienced God's transformation through Christ-Like Missionaries? 
             We'd love to hear your testimony!
           </p>
-          <a href="mailto:testimonies@christlikeemissionaries.org" className="bg-navy-500 text-white px-8 py-3 rounded-lg font-bold hover:bg-navy-400 transition-all duration-200 border-2 border-gold shadow-lg">
+          <a href="mailto:christlikemissionaries@gmail.com" className="bg-navy-500 text-white px-8 py-3 rounded-lg font-bold hover:bg-navy-400 transition-all duration-200 border-2 border-gold shadow-lg">
             Share Your Testimony
           </a>
         </div>

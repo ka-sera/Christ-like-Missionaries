@@ -181,7 +181,7 @@ export default function JoinPage() {
             <li>Hosting events and gatherings</li>
           </ul>
           <p>
-            <strong>Contact us:</strong> <a href="mailto:partners@christlikeemissionaries.org" className="underline hover:text-gold">partners@christlikeemissionaries.org</a>
+            <strong>Contact us:</strong> <a href="mailto:christlikemissionaries@gmail.com" className="underline hover:text-gold">christlikemissionaries@gmail.com</a>
           </p>
         </section>
       </div>

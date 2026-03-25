@@ -1,14 +1,12 @@
 import React, { useState } from 'react'
-
 export default function EventsPage() {
   const [events] = useState([
     {
       id: 1,
-      title: "Monthly House order meetings",
-      date: "First Saturday of every month",
-      time: "3:00 PM - 6:00 PM",
-      location: "AVS 10",
-      description: "We meet up every month to do house keeping and plan for upcoming missions"
+      title: "NAMANGA MISSION",
+      date: "26th April- 10th May 2026",
+      location: "Namanga town",
+      description: "its a mission geared towards seacrhing for souls and also to plant an adventist church in the namanga area that has churches in a distance"
     },
     {
       id: 2,
@@ -88,7 +86,7 @@ export default function EventsPage() {
           <p className="mb-6 text-lg text-navy-100">
             Contact us for more details and to get involved in our mission activities.
           </p>
-          <a href="mailto:contact@christlikeemissionaries.org" className="bg-gold text-white-900 px-6 py-2 rounded font-bold hover:bg-white-500 transition inline-block">
+          <a href="mailto:christlikemissionaries@gmail.com" className="bg-gold text-white-900 px-6 py-2 rounded font-bold hover:bg-white-500 transition inline-block">
             Get in Touch
           </a>
         </div>

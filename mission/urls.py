@@ -15,10 +15,11 @@ router.register(r'donations', views.DonationViewSet, basename='donation')
 urlpatterns = [
     # Router URLs
     path('', include(router.urls)),
-    
+
     # Authentication
     path('api-token-auth/', authtoken_views.obtain_auth_token, name='api_token_auth'),
-    
+
     # Additional endpoints
     path('api-auth/', include('rest_framework.urls')),
+    path('contact/', views.ContactMessageView.as_view(), name='contact_message'),
 ]

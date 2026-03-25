@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { contactAPI } from '../services/api'
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -10,6 +11,8 @@ export default function ContactPage() {
   })
 
   const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -19,15 +22,23 @@ export default function ContactPage() {
     }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // In a real app, you would send this to your backend
-    console.log('Contact form submitted:', formData)
-    setSubmitted(true)
-    setTimeout(() => {
-      setSubmitted(false)
+    setError('')
+    setIsSubmitting(true)
+
+    try {
+      await contactAPI.sendMessage(formData)
+      setSubmitted(true)
       setFormData({ name: '', email: '', phone: '', subject: '', message: '' })
-    }, 3000)
+      setTimeout(() => {
+        setSubmitted(false)
+      }, 3000)
+    } catch (err) {
+      setError(err.response?.data?.error || 'We could not send your message right now. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -94,6 +105,12 @@ export default function ContactPage() {
             {submitted && (
               <div className="bg-gold text-gray-900 p-4 rounded mb-6 font-semibold">
                 Thank you for your message! We'll get back to you soon.
+              </div>
+            )}
+
+            {error && (
+              <div className="bg-red-600 text-white p-4 rounded mb-6 font-semibold">
+                {error}
               </div>
             )}
 
@@ -164,9 +181,10 @@ export default function ContactPage() {
 
               <button
                 type="submit"
+                disabled={isSubmitting}
                 className="w-full bg-gold text-gray-900 py-3 rounded-lg font-bold hover:bg-yellow-500 transition"
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
             </form>
 
