@@ -1,3 +1,4 @@
+```jsx
 import React from 'react'
 
 const ministries = [
@@ -74,22 +75,63 @@ const ministries = [
 ]
 
 export default function MinistriesPage() {
+  React.useEffect(() => {
+    document.title = 'Christian Ministries | Christ-Like Missionaries'
+
+    const description =
+      'Explore the ministries of Christ-Like Missionaries, including evangelism, missions, Bible study, discipleship, prayer, youth fellowship, community outreach, compassion, and health ministry.'
+
+    let metaDescription = document.querySelector('meta[name="description"]')
+
+    if (!metaDescription) {
+      metaDescription = document.createElement('meta')
+      metaDescription.name = 'description'
+      document.head.appendChild(metaDescription)
+    }
+
+    metaDescription.setAttribute('content', description)
+
+    let canonical = document.querySelector('link[rel="canonical"]')
+
+    if (!canonical) {
+      canonical = document.createElement('link')
+      canonical.rel = 'canonical'
+      document.head.appendChild(canonical)
+    }
+
+    canonical.setAttribute(
+      'href',
+      'https://christ-likemissionaries.org/ministries'
+    )
+  }, [])
+
   return (
     <div className="bg-navy-800 py-12 px-4 min-h-screen">
       <div className="max-w-5xl mx-auto">
-        <h1 className="text-4xl font-bold text-white mb-4 text-center">Our Ministries</h1>
+
+        <h1 className="text-4xl font-bold text-white mb-4 text-center">
+          Christian Ministries
+        </h1>
+
         <p className="text-2xl text-navy-100 text-center mb-12 font-semibold border-b-2 border-navy-300 pb-6">
           Serving God, transforming lives, and advancing the Kingdom.
         </p>
 
         <div className="space-y-8">
           {ministries.map((ministry) => (
-            <div key={ministry.id} className="bg-gradient-to-br from-navy-500 to-navy-600 rounded-lg shadow-lg p-8 border-l-4 border-gold hover:shadow-xl transition-shadow">
+            <div
+              key={ministry.id}
+              className="bg-gradient-to-br from-navy-500 to-navy-600 rounded-lg shadow-lg p-8 border-l-4 border-gold hover:shadow-xl transition-shadow"
+            >
               <div className="mb-4">
-                <h2 className="text-2xl font-bold text-white">{ministry.title}</h2>
+                <h2 className="text-2xl font-bold text-white">
+                  {ministry.title}
+                </h2>
               </div>
 
-              <p className="text-navy-100 mb-4 font-semibold">{ministry.highlight}</p>
+              <p className="text-navy-100 mb-4 font-semibold">
+                {ministry.highlight}
+              </p>
 
               <ul className="space-y-2 mb-6 ml-8">
                 {ministry.activities.map((activity, idx) => (
@@ -100,16 +142,24 @@ export default function MinistriesPage() {
               </ul>
 
               <div className="bg-navy-400 p-4 rounded border-l-4 border-gold">
-                <p className="text-navy-50 italic\">{ministry.scripture}</p>
+                <p className="text-navy-50 italic">
+                  {ministry.scripture}
+                </p>
               </div>
             </div>
           ))}
         </div>
 
         <div className="mt-12 bg-gradient-to-r from-navy-500 to-navy-600 border-2 border-navy-300 p-6 rounded-lg text-center shadow-lg">
-          <p className="text-lg text-white font-semibold">All our ministries exist for one purpose: to make the name of Jesus known. In everything we do, we strive to reflect His grace, walk in His truth, and lead others into the life-changing power of His love.</p>
+          <p className="text-lg text-white font-semibold">
+            All our ministries exist for one purpose: to make the name of Jesus known.
+            In everything we do, we strive to reflect His grace, walk in His truth,
+            and lead others into the life-changing power of His love.
+          </p>
         </div>
+
       </div>
     </div>
   )
 }
+```
